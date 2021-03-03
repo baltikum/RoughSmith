@@ -1,6 +1,6 @@
-import java.io.File;
+import Calculations.IBUCalculator;
+
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 public class RoughSmith {
 

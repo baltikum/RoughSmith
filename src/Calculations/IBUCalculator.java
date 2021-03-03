@@ -1,3 +1,8 @@
+package Calculations;
+
+import InOut.ScanLines;
+import InOut.ScanTable;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -12,7 +17,21 @@ public class IBUCalculator {
     private double boilTime;
     private Double gram;
 
+    /*
 
+    Gravity = (Batch Size In Gallons / Boil Size In Gallons) * (Gravity - 1)
+
+Bigness Factor = 1.65 * Math.pow(0.000125, Gravity)
+
+Boil Time Factor = (1 - Math.pow(2.718281828459045235, (-0.04 * Boil Time))) / 4.15
+
+Utilization = Bigness Factor * Boil Time Factor
+
+If you are using hop pellets we then mutiply the utilization by 1.1.
+
+IBU = (Alpha Acid * Ounces) * Utilization * 74.90 / Batch Size In Gallons
+
+     */
     public IBUCalculator(Double gram,Double alpha, Double volume, Double og ,Double boilTime) throws FileNotFoundException {
         ScanLines temp= new ScanLines(new File("HopUtilValues.txt"));
         ArrayList<String>lines = temp.getLines();
